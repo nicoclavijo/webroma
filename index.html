@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía Completa de Roma en 4 Días (con Precios y Enlaces)</title>
+    <title>Tu Itinerario Personalizado para Roma (19-23 Nov)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,30 +11,91 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fdfaf6;
+            background-color: #f7f7f7;
+            background-image: url('https://www.transparenttextures.com/patterns/marbre.png'); /* Marble background texture */
         }
         h1, h2, h3 {
             font-family: 'Lora', serif;
         }
-        .link-custom {
-            color: #c2410c;
+        .nav-link.active {
+            background-color: #eef2ff;
+            color: #312e81;
             font-weight: 600;
-            text-decoration: none;
-            transition: color 0.3s;
+            border-left: 3px solid #4f46e5;
+            padding-left: 10px;
         }
-        .link-custom:hover {
-            color: #9a3412;
-            text-decoration: underline;
+        .card-hover {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Gallery Styles */
+        .gallery-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .gallery-images {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery-image {
+            min-width: 100%;
+            height: 12rem; /* 192px */
+            object-fit: cover;
+            display: none;
+        }
+        .gallery-image.active {
+            display: block;
+        }
+        .gallery-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: background-color 0.2s;
+        }
+        .gallery-btn:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .prev-btn {
+            left: 0.5rem;
+        }
+        .next-btn {
+            right: 0.5rem;
         }
     </style>
 </head>
 <body class="text-gray-800">
 
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-6 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-orange-900">Guía Completa de Roma en 4 Días</h1>
-            <p class="mt-2 text-lg text-gray-600">Un itinerario detallado con precios, enlaces oficiales y recomendaciones gastronómicas</p>
+    <header class="bg-white/90 backdrop-blur-sm shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-indigo-900">Tu Itinerario para Roma</h1>
+            <p class="mt-1 text-md text-gray-600">Adaptado para tu viaje del 19 al 23 de Noviembre</p>
         </div>
     </header>
 
@@ -43,32 +104,21 @@
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
             <!-- Sticky Index Navigation -->
-            <aside class="lg:col-span-1 lg:sticky lg:top-28 self-start">
+            <aside class="lg:col-span-1 lg:sticky lg:top-24 self-start">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-bold mb-4 text-orange-800 border-b pb-2">Navegación Rápida</h3>
+                    <h3 class="text-xl font-bold mb-4 text-indigo-800 border-b pb-2">Tu Viaje</h3>
                     <nav id="nav-index">
-                        <ul class="space-y-3">
-                            <li><a href="#general" class="nav-link">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                Consideraciones</a></li>
-                            <li><a href="#dia1" class="nav-link">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                Día 1: Roma Antigua</a></li>
-                            <li><a href="#dia2" class="nav-link">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                Día 2: Vaticano</a></li>
-                            <li><a href="#dia3" class="nav-link">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                Día 3: Plazas y Fuentes</a></li>
-                            <li><a href="#dia4" class="nav-link">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                Día 4: Tesoros Ocultos</a></li>
-                             <li><a href="#comida" class="nav-link">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.5 2.5a2.5 2.5 0 00-3.515 0l-9.92 9.92a.5.5 0 00-.02.69l.43.5a1.5 1.5 0 002.32.22l5.4-4.82a.5.5 0 00.06-.68l-.43-.5a1.5 1.5 0 00-2.13-2.12l-1.61 1.61a.5.5 0 00.7 0l4.25-4.25a2.5 2.5 0 000-3.515z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19 15V7.5M19 7.5c0-1.2-1.6-1.5-2.5-2.5m2.5 2.5h-10"></path></svg>
-                                Platos Romanos</a></li>
-                            <li><a href="#restaurantes" class="nav-link">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                Dónde Comer</a></li>
+                        <ul class="space-y-1">
+                            <li><a href="#reservas" class="nav-link block p-2 rounded-md text-gray-700 hover:bg-indigo-50">Reservas</a></li>
+                            <li><a href="#puntos-clave" class="nav-link block p-2 rounded-md text-gray-700 hover:bg-indigo-50">Puntos Clave</a></li>
+                            <li><a href="#extras" class="nav-link block p-2 rounded-md text-gray-700 hover:bg-indigo-50">Extras</a></li>
+                            <li><a href="#comida" class="nav-link block p-2 rounded-md text-gray-700 hover:bg-indigo-50">Gastronomía</a></li>
+                            <li><a href="#tours" class="nav-link block p-2 rounded-md text-gray-700 hover:bg-indigo-50">Free Tours</a></li>
+                            <li><a href="#dia19" class="nav-link block p-2 rounded-md text-gray-700 hover:bg-indigo-50"><strong>Martes 19:</strong> Llegada</a></li>
+                            <li><a href="#dia20" class="nav-link block p-2 rounded-md text-gray-700 hover:bg-indigo-50"><strong>Miércoles 20:</strong> Roma Antigua</a></li>
+                            <li><a href="#dia21" class="nav-link block p-2 rounded-md text-gray-700 hover:bg-indigo-50"><strong>Jueves 21:</strong> El Vaticano</a></li>
+                            <li><a href="#dia22" class="nav-link block p-2 rounded-md text-gray-700 hover:bg-indigo-50"><strong>Viernes 22:</strong> Arte y Plazas</a></li>
+                            <li><a href="#dia23" class="nav-link block p-2 rounded-md text-gray-700 hover:bg-indigo-50"><strong>Sábado 23:</strong> Despedida</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -77,168 +127,385 @@
             <!-- Itinerary Content -->
             <div class="lg:col-span-3 space-y-12">
 
-                <!-- General Considerations Section -->
-                <section id="general" class="bg-white p-8 rounded-lg shadow-lg">
-                    <h2 class="text-3xl font-bold mb-6 text-orange-900">Consideraciones Generales</h2>
+                <!-- Crucial Reservations -->
+                <section id="reservas" class="scroll-reveal bg-white p-8 rounded-lg shadow-lg card-hover">
+                    <h2 class="text-3xl font-bold mb-6 text-indigo-900">🚨 ¡Reserva Esto Cuanto Antes!</h2>
+                    <p class="mb-6 text-gray-600">Para asegurar tu entrada y optimizar tu tiempo, te recomiendo hacer estas reservas online lo antes posible:</p>
                     <ul class="space-y-4">
-                        <li class="flex items-start"><strong class="mr-2 text-orange-600">👟 Calzado:</strong> ¡Usa calzado cómodo! Caminarás mucho por calles adoquinadas.</li>
-                        <li class="flex items-start"><strong class="mr-2 text-orange-600">💧 Agua:</strong> Lleva una botella reutilizable. Las fuentes de agua potable (nasoni) son abundantes y gratuitas.</li>
-                        <li class="flex items-start"><strong class="mr-2 text-orange-600">🎟️ Reservas:</strong> Es crucial reservar con antelación las entradas para los sitios de pago para evitar colas y asegurar tu acceso.</li>
+                        <li class="flex items-start">
+                            <span class="text-indigo-600 font-bold mr-3 text-xl">1.</span>
+                            <div>
+                                <h4 class="font-semibold text-lg">Coliseo, Foro y Palatino (para el Miércoles 20)</h4>
+                                <p class="text-gray-600">Elige la primera franja horaria de la mañana (ej. 09:00h). <a href="https://colosseo.it/es/entradas/" target="_blank" class="font-semibold text-indigo-700 hover:underline">Web Oficial</a>.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-indigo-600 font-bold mr-3 text-xl">2.</span>
+                            <div>
+                                <h4 class="font-semibold text-lg">Museos Vaticanos (para el Jueves 21)</h4>
+                                <p class="text-gray-600">Reserva también para primera hora para evitar las peores aglomeraciones. <a href="https://tickets.museivaticani.va/" target="_blank" class="font-semibold text-indigo-700 hover:underline">Web Oficial</a>.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-indigo-600 font-bold mr-3 text-xl">3.</span>
+                            <div>
+                                <h4 class="font-semibold text-lg">Galería Borghese (para el Viernes 22)</h4>
+                                <p class="text-gray-600">Esta es la más difícil de conseguir. Reserva tu turno (ej. 09:00-11:00h) ya mismo. <a href="https://galleriaborghese.beniculturali.it/en/visita/info-biglietti/" target="_blank" class="font-semibold text-indigo-700 hover:underline">Web Oficial</a>.</p>
+                            </div>
+                        </li>
                     </ul>
                 </section>
-
-                <!-- Day 1 -->
-                <section id="dia1" class="bg-white p-8 rounded-lg shadow-lg">
-                    <h2 class="text-3xl font-bold mb-2 text-orange-900">Día 1: El Corazón de la Roma Antigua</h2>
-                    <p class="text-lg text-gray-500 mb-6">Temática: Coliseo, Foro Romano y Palatino.</p>
-                    <div class="mb-6 bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
-                        <h3 class="font-bold text-lg text-orange-800">Costos y Reservas</h3>
-                        <p class="mt-1">Entrada conjunta: desde <strong>€18</strong>. Válida 24h para las 3 zonas.</p>
-                        <p class="mt-1">La reserva de franja horaria para el Coliseo es <strong>obligatoria</strong>.</p>
-                        <a href="https://colosseo.it/es/entradas/" target="_blank" class="link-custom">Reserva Oficial Aquí</a>
-                    </div>
-                    <div class="space-y-4">
-                        <p><strong>Mañana:</strong> Coliseo, Foro Romano y Monte Palatino.</p>
-                        <p><strong>Tarde:</strong> Piazza Venezia y Monumento a Victor Manuel II (acceso gratuito, ascensor panorámico ~€10).</p>
-                        <p><strong>Noche:</strong> Cena en el barrio de Monti o cerca del Panteón.</p>
-                    </div>
-                </section>
-
-                <!-- Day 2 -->
-                <section id="dia2" class="bg-white p-8 rounded-lg shadow-lg">
-                    <h2 class="text-3xl font-bold mb-2 text-orange-900">Día 2: Museos Vaticanos y San Pedro</h2>
-                    <p class="text-lg text-gray-500 mb-6">Temática: Ciudad del Vaticano.</p>
-                     <div class="mb-6 bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
-                        <h3 class="font-bold text-lg text-orange-800">Costos y Reservas</h3>
-                        <p class="mt-1">Museos Vaticanos y Capilla Sixtina: desde <strong>€20</strong> + tasas si es online. <a href="https://tickets.museivaticani.va/" target="_blank" class="link-custom">Reserva Oficial Aquí</a></p>
-                        <p class="mt-1">Basílica de San Pedro: <strong>Entrada gratuita</strong>.</p>
-                        <p class="mt-1">Cúpula: <strong>€8</strong> (a pie) / <strong>€10</strong> (con ascensor).</p>
-                    </div>
-                     <div class="space-y-4">
-                        <p><strong>Mañana:</strong> Museos Vaticanos y Capilla Sixtina.</p>
-                        <p><strong>Tarde:</strong> Basílica de San Pedro y Castillo Sant'Angelo.</p>
-                        <p><strong>Noche:</strong> Cena en el Trastevere.</p>
-                    </div>
-                </section>
-
-                <!-- Day 3 -->
-                <section id="dia3" class="bg-white p-8 rounded-lg shadow-lg">
-                    <h2 class="text-3xl font-bold mb-2 text-orange-900">Día 3: Fuentes, Plazas y el Corazón de la Ciudad</h2>
-                     <p class="text-lg text-gray-500 mb-6">Temática: Plazas y el ambiente romano.</p>
-                     <div class="mb-6 bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
-                        <h3 class="font-bold text-lg text-orange-800">Costos</h3>
-                        <p class="mt-1">Panteón: <strong>€5</strong> por persona. Se recomienda reservar. <a href="https://www.direzionemuseiroma.beniculturali.it/istituti/pantheon/" target="_blank" class="link-custom">Más Información</a></p>
-                        <p class="mt-1">Fontana di Trevi, Plaza de España y Piazza Navona: <strong>Gratuitas</strong>.</p>
-                    </div>
-                    <div class="space-y-4">
-                        <p><strong>Mañana:</strong> Panteón y Piazza Navona.</p>
-                        <p><strong>Mediodía:</strong> Campo de' Fiori y el Gueto Judío.</p>
-                        <p><strong>Tarde:</strong> Fontana di Trevi y Plaza de España.</p>
-                    </div>
-                </section>
-
-                <!-- Day 4 -->
-                <section id="dia4" class="bg-white p-8 rounded-lg shadow-lg">
-                    <h2 class="text-3xl font-bold mb-2 text-orange-900">Día 4: Tesoros Ocultos y Opciones</h2>
-                    <p class="text-lg text-gray-500 mb-6">Temática: Arte, catacumbas o ruinas menos conocidas.</p>
-                    <div class="mb-6 bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
-                        <h3 class="font-bold text-lg text-orange-800">Costos y Reservas Clave</h3>
-                        <p class="mt-1">Galería Borghese: desde <strong>€15</strong>. ¡Reserva obligatoria con mucha antelación! <a href="https://galleriaborghese.beniculturali.it/en/visita/info-biglietti/" target="_blank" class="link-custom">Reserva Oficial</a></p>
-                        <p class="mt-1">Catacumbas de San Calixto: <strong>€10</strong> con tour guiado. <a href="https://www.catacombesancallisto.it/es/biglietti.php" target="_blank" class="link-custom">Reserva Oficial</a></p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h4 class="font-bold text-xl mb-2 text-orange-800">Opción A: Arte y Naturaleza</h4>
-                            <p><strong>Mañana:</strong> Galería Borghese (visita de 2h).</p>
-                            <p><strong>Mediodía:</strong> Jardines de Villa Borghese.</p>
-                            <p><strong>Tarde:</strong> Piazza del Popolo y Via del Corso.</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-xl mb-2 text-orange-800">Opción B: Roma Subterránea</h4>
-                            <p><strong>Mañana:</strong> Catacumbas (San Calixto o Domitila).</p>
-                            <p><strong>Mediodía:</strong> Paseo por la Via Appia Antica.</p>
-                            <p><strong>Tarde:</strong> Basílica de San Juan de Letrán.</p>
-                        </div>
-                    </div>
+                
+                 <!-- Key Points Section -->
+                <section id="puntos-clave" class="scroll-reveal bg-white p-8 rounded-lg shadow-lg card-hover">
+                    <h2 class="text-3xl font-bold mb-6 text-indigo-900">💡 Puntos Clave para tu Viaje en Noviembre</h2>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start"><strong class="mr-2 text-indigo-600">⏰ Horarios de Invierno:</strong> El sol se pone sobre las 16:45h. Muchos monumentos cierran antes. Prioriza las visitas exteriores por la mañana para aprovechar la luz.</li>
+                        <li class="flex items-start"><strong class="mr-2 text-indigo-600">🧥 Ropa y Clima:</strong> Viste en capas. Las mañanas y noches son frías, pero al mediodía y en interiores la temperatura es más agradable. Un paraguas compacto es buena idea.</li>
+                        <li class="flex items-start"><strong class="mr-2 text-indigo-600">👟 Calzado:</strong> ¡Imprescindible que sea cómodo! Caminarás mucho y las calles adoquinadas (sanpietrini) pueden ser resbaladizas si llueve.</li>
+                    </ul>
                 </section>
                 
+                <!-- Extras Section -->
+                <section id="extras" class="scroll-reveal bg-white p-8 rounded-lg shadow-lg card-hover">
+                    <h2 class="text-3xl font-bold mb-6 text-indigo-900">✨ Extras y Opciones (Si te sobra tiempo)</h2>
+                     <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-lg text-indigo-800">Por la Mañana</h4>
+                            <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg"><strong class="text-indigo-700">Boca de la Verdad:</strong> Ideal para ir temprano y evitar las colas para la foto.</div>
+                                <div class="bg-gray-50 p-4 rounded-lg"><strong class="text-indigo-700">San Pietro in Vincoli:</strong> Visita el Moisés de Miguel Ángel con la tranquilidad y la luz de la mañana.</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-indigo-800">Por la Tarde</h4>
+                             <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg"><strong class="text-indigo-700">Circo Máximo:</strong> Perfecto para un paseo relajante cuando el sol de la tarde suaviza el ambiente.</div>
+                                <div class="bg-gray-50 p-4 rounded-lg"><strong class="text-indigo-700">Jardín de los Naranjos:</strong> Sube a la colina del Aventino para una de las puestas de sol más bonitas de Roma.</div>
+                            </div>
+                        </div>
+                         <div>
+                            <h4 class="font-bold text-lg text-indigo-800">Por la Noche</h4>
+                             <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg"><strong class="text-indigo-700">Gueto Judío:</strong> El barrio cobra vida por la noche, con sus restaurantes y su ambiente único.</div>
+                                <div class="bg-gray-50 p-4 rounded-lg"><strong class="text-indigo-700">Paseo por el Tíber:</strong> Caminar por la orilla del río viendo los puentes y el Castillo Sant'Angelo iluminados es mágico.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Food Section -->
-                 <section id="comida" class="bg-white p-8 rounded-lg shadow-lg">
-                    <h2 class="text-3xl font-bold mb-6 text-orange-900">Los Platos que No Puedes Perderte</h2>
-                    <p class="mb-4">La "Santa Trinidad" de la pasta romana se basa en <strong>queso Pecorino Romano</strong> y <strong>guanciale</strong> (papada de cerdo curada):</p>
-                    <ul class="list-disc list-inside space-y-2 mb-4">
-                        <li><strong>Carbonara:</strong> Huevo, guanciale, Pecorino y pimienta.</li>
-                        <li><strong>Amatriciana:</strong> Tomate, guanciale, Pecorino y chile.</li>
-                        <li><strong>Gricia:</strong> La "Amatriciana blanca", sin tomate.</li>
-                        <li><strong>Cacio e Pepe:</strong> La más simple, Pecorino y pimienta.</li>
-                    </ul>
-                     <p>Además, no te vayas sin probar los <strong>Supplí</strong> (bolas de arroz fritas), <strong>Carciofi alla Giudia</strong> (alcachofas fritas) y <strong>Saltimbocca alla Romana</strong> (ternera con jamón y salvia).</p>
-                </section>
-                
-                 <!-- Restaurants Section -->
-                <section id="restaurantes" class="bg-white p-8 rounded-lg shadow-lg">
-                    <h2 class="text-3xl font-bold mb-6 text-orange-900">Dónde Comer: Recomendaciones por Zona</h2>
-                    <div class="space-y-6">
+                <section id="comida" class="scroll-reveal bg-white p-8 rounded-lg shadow-lg card-hover">
+                    <h2 class="text-3xl font-bold mb-6 text-indigo-900">🍝 Guía Gastronómica Detallada</h2>
+                    <div class="space-y-8">
                         <div>
-                            <h3 class="text-xl font-semibold text-orange-800">Día 1: Cerca del Coliseo (Barrio de Monti)</h3>
-                            <ul class="list-disc list-inside mt-2">
-                                <li><strong>Taverna dei Fori Imperiali:</strong> Alta calidad, requiere reserva.</li>
-                                <li><strong>Osteria Angelino dal 1899:</strong> Histórica y auténtica.</li>
-                                <li><strong>Trattoria Luzzi:</strong> Económica, rústica y con grandes porciones.</li>
-                            </ul>
+                             <h3 class="text-2xl font-semibold text-indigo-800 border-b pb-2 mb-4">Zona Coliseo / Monti</h3>
+                             <p class="text-lg font-semibold text-gray-700">Almuerzo (Miércoles)</p>
+                             <div class="mt-2 border rounded-lg p-4">
+                                <h4 class="font-bold">Trattoria Luzzi</h4>
+                                <p class="text-sm text-gray-600">Opción económica, rústica y auténtica. Popular por sus grandes porciones y ambiente casero.</p>
+                                <div class="mt-2 flex justify-between items-center text-sm"><span class="font-bold text-yellow-500">★ 4.3</span><a href="https://maps.google.com/?q=Trattoria+Luzzi" target="_blank" class="font-semibold text-indigo-600 hover:underline">Ver en Mapa</a></div>
+                             </div>
+                        </div>
+                         <div>
+                             <h3 class="text-2xl font-semibold text-indigo-800 border-b pb-2 mb-4">Zona Panteón / Centro</h3>
+                             <p class="text-lg font-semibold text-gray-700">Cena (Martes)</p>
+                             <div class="mt-2 border rounded-lg p-4">
+                                <h4 class="font-bold">Armando al Pantheon</h4>
+                                <p class="text-sm text-gray-600">Una institución. Calidad excepcional. Imprescindible reservar con semanas de antelación.</p>
+                                <div class="mt-2 flex justify-between items-center text-sm"><span class="font-bold text-yellow-500">★ 4.6</span><a href="https://maps.google.com/?q=Armando+al+Pantheon" target="_blank" class="font-semibold text-indigo-600 hover:underline">Ver en Mapa</a></div>
+                             </div>
+                             <div class="mt-2 border rounded-lg p-4">
+                                <h4 class="font-bold">Osteria del Sostegno</h4>
+                                <p class="text-sm text-gray-600">Alternativa excelente cerca del Panteón. Cocina romana tradicional en un ambiente acogedor. También se recomienda reservar.</p>
+                                <div class="mt-2 flex justify-between items-center text-sm"><span class="font-bold text-yellow-500">★ 4.6</span><a href="https://maps.google.com/?q=Osteria+del+Sostegno" target="_blank" class="font-semibold text-indigo-600 hover:underline">Ver en Mapa</a></div>
+                             </div>
                         </div>
                         <div>
-                            <h3 class="text-xl font-semibold text-orange-800">Día 2: Trastevere (Después del Vaticano)</h3>
-                             <ul class="list-disc list-inside mt-2">
-                                <li><strong>Tonnarello:</strong> La más famosa, porciones enormes. Siempre hay cola.</li>
-                                <li><strong>Trattoria Da Augusto:</strong> Cocina tradicional sin lujos, frecuentada por locales.</li>
-                                <li><strong>Da Enzo al 29:</strong> Pequeña y excepcional, famosa por su Carbonara.</li>
-                            </ul>
+                             <h3 class="text-2xl font-semibold text-indigo-800 border-b pb-2 mb-4">Trastevere</h3>
+                             <p class="text-lg font-semibold text-gray-700">Cena (Jueves)</p>
+                             <div class="mt-2 border rounded-lg p-4">
+                                <h4 class="font-bold">Tonnarello</h4>
+                                <p class="text-sm text-gray-600">La más famosa. Pasta casera y porciones enormes. Siempre hay cola, pero merece la pena.</p>
+                                <div class="mt-2 flex justify-between items-center text-sm"><span class="font-bold text-yellow-500">★ 4.5</span><a href="https://maps.google.com/?q=Tonnarello" target="_blank" class="font-semibold text-indigo-600 hover:underline">Ver en Mapa</a></div>
+                             </div>
+                             <div class="mt-2 border rounded-lg p-4">
+                                <h4 class="font-bold">Da Enzo al 29</h4>
+                                <p class="text-sm text-gray-600">Pequeño local considerado uno de los mejores para la cocina romana auténtica. Famosa su Carbonara.</p>
+                                <div class="mt-2 flex justify-between items-center text-sm"><span class="font-bold text-yellow-500">★ 4.6</span><a href="https://maps.google.com/?q=Da+Enzo+al+29" target="_blank" class="font-semibold text-indigo-600 hover:underline">Ver en Mapa</a></div>
+                             </div>
                         </div>
                         <div>
-                            <h3 class="text-xl font-semibold text-orange-800">Día 3: Cerca del Panteón</h3>
-                            <ul class="list-disc list-inside mt-2">
-                                <li><strong>Armando al Pantheon:</strong> Una institución. Esencial reservar con mucha antelación.</li>
-                                <li><strong>Antica Trattoria Due Colonne:</strong> Tradicional y con precios razonables.</li>
-                                <li><strong>Hostaria Pantheon:</strong> Gran reputación por su comida bien hecha.</li>
-                            </ul>
-                        </div>
-                        <div class="mt-4 bg-gray-100 p-4 rounded-lg">
-                            <p class="font-semibold">⭐ Consejo extra: Evita los restaurantes con menús en varios idiomas y fotos de la comida en la entrada. Busca las "trattorias" y "osterias", que suelen ser establecimientos más tradicionales y familiares.</p>
+                             <h3 class="text-2xl font-semibold text-indigo-800 border-b pb-2 mb-4">Antojos Dulces</h3>
+                              <div class="mt-2 border rounded-lg p-4">
+                                <h4 class="font-bold">Two Sizes Tiramisù</h4>
+                                <p class="text-sm text-gray-600">Cerca de Piazza Navona. Famoso por su delicioso tiramisú para llevar en varios sabores (clásico, pistacho, fresa...).</p>
+                                <div class="mt-2 flex justify-between items-center text-sm"><span class="font-bold text-yellow-500">★ 4.7</span><a href="https://maps.google.com/?q=Two+Sizes" target="_blank" class="font-semibold text-indigo-600 hover:underline">Ver en Mapa</a></div>
+                             </div>
                         </div>
                     </div>
                 </section>
+                
+                 <!-- Free Tours Section -->
+                <section id="tours" class="scroll-reveal bg-white p-8 rounded-lg shadow-lg card-hover">
+                    <h2 class="text-3xl font-bold mb-6 text-indigo-900">🚶 Free Tours Recomendados</h2>
+                    <p class="mb-4 text-gray-600">Una excelente manera de tener una primera toma de contacto con la ciudad. Recuerda que aunque se llamen "gratis", se espera dar una propina al guía al final del recorrido según tu satisfacción.</p>
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                        <a href="https://www.civitatis.com/es/roma/free-tour-roma" target="_blank" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors text-center">Ver Tours en Civitatis</a>
+                        <a href="https://www.guruwalk.com/es/roma" target="_blank" class="bg-gray-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors text-center">Ver Tours en GuruWalk</a>
+                    </div>
+                </section>
+
+                <!-- Daily Itinerary Sections will be dynamically populated into itinerary-content -->
+                <div id="itinerary-content" class="space-y-12">
+                     <div id="dia19" class="scroll-reveal bg-white p-8 rounded-lg shadow-lg card-hover">
+                        <h2 class="text-3xl font-bold mb-2 text-indigo-900">Martes 19 Nov: Llegada y Primera Inmersión</h2>
+                        <p class="text-lg text-gray-500 mb-6">Llegas a las 17:00h. Plan para una tarde-noche mágica.</p>
+                        <div class="space-y-6">
+                            <div class="p-4 border rounded-lg">
+                                <h3 class="font-semibold text-lg text-indigo-800">19:00h - Piazza Navona y Panteón Iluminado</h3>
+                                <div class="gallery-container my-2">
+                                    <img src="https://images.unsplash.com/photo-1590054948236-3a243019050d?q=80&w=870&auto=format&fit=crop" alt="[Imagen de la Piazza Navona de noche]" class="gallery-image active">
+                                    <img src="https://images.unsplash.com/photo-1620021392955-989623595d60?q=80&w=870&auto=format&fit=crop" alt="[Imagen de la fuente de los Cuatro Ríos en Piazza Navona]" class="gallery-image">
+                                    <button class="gallery-btn prev-btn">&lt;</button>
+                                    <button class="gallery-btn next-btn">&gt;</button>
+                                </div>
+                                <p class="text-gray-600 text-sm">Camina hasta la espectacular Piazza Navona. Admira la Fuente de los Cuatro Ríos. Luego, acércate al Panteón para verlo iluminado por fuera.</p>
+                                <a href="https://maps.google.com/?q=Piazza+Navona" target="_blank" class="text-indigo-600 font-semibold text-sm mt-2 inline-block hover:underline">Ver en Mapa →</a>
+                            </div>
+                            <div class="p-4 border rounded-lg">
+                                <h3 class="font-semibold text-lg text-indigo-800">20:00h - Fontana di Trevi y Cena</h3>
+                                <div class="gallery-container my-2">
+                                    <img src="https://images.unsplash.com/photo-1542653428-1ff2b545130b?q=80&w=774&auto=format&fit=crop" alt="[Imagen de la Fontana di Trevi iluminada]" class="gallery-image active">
+                                    <img src="https://images.unsplash.com/photo-1593306708349-482e66606089?q=80&w=774&auto=format&fit=crop" alt="[Imagen de detalle de la Fontana di Trevi]" class="gallery-image">
+                                    <button class="gallery-btn prev-btn">&lt;</button>
+                                    <button class="gallery-btn next-btn">&gt;</button>
+                                </div>
+                                <p class="text-gray-600 text-sm">Continúa tu paseo hasta la Fontana di Trevi. De noche es simplemente mágica y con menos gente. ¡Lanza la moneda!</p>
+                                <a href="https://maps.google.com/?q=Fontana+di+Trevi" target="_blank" class="text-indigo-600 font-semibold text-sm mt-2 inline-block hover:underline">Ver en Mapa →</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div id="dia20" class="scroll-reveal bg-white p-8 rounded-lg shadow-lg card-hover">
+                        <h2 class="text-3xl font-bold mb-2 text-indigo-900">Miércoles 20 Nov: Día en la Roma Antigua</h2>
+                        <p class="text-lg text-gray-500 mb-6">Un viaje de 2000 años al pasado.</p>
+                        <div class="space-y-6">
+                            <div class="p-4 border rounded-lg">
+                                <h3 class="font-semibold text-lg text-indigo-800">09:00h - El Coliseo</h3>
+                                <div class="gallery-container my-2">
+                                    <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=796&auto=format&fit=crop" alt="[Imagen del Coliseo Romano]" class="gallery-image active">
+                                    <img src="https://images.unsplash.com/photo-1589334336147-7a2533475c83?q=80&w=870&auto=format&fit=crop" alt="[Imagen del interior del Coliseo]" class="gallery-image">
+                                    <button class="gallery-btn prev-btn">&lt;</button>
+                                    <button class="gallery-btn next-btn">&gt;</button>
+                                </div>
+                                <p class="text-gray-600 text-sm">Con tu reserva hecha, entra a primera hora. Recorre el anfiteatro más famoso del mundo. La visita dura entre 1.5 y 2 horas.</p>
+                                <a href="https://maps.google.com/?q=Coliseo+de+Roma" target="_blank" class="text-indigo-600 font-semibold text-sm mt-2 inline-block hover:underline">Ver en Mapa →</a>
+                            </div>
+                            <div class="p-4 border rounded-lg">
+                                <h3 class="font-semibold text-lg text-indigo-800">11:00h - Foro Romano y Monte Palatino</h3>
+                                <div class="gallery-container my-2">
+                                    <img src="https://images.unsplash.com/photo-1591184852320-644153578351?q=80&w=870&auto=format&fit=crop" alt="[Imagen del Foro Romano desde el Palatino]" class="gallery-image active">
+                                    <img src="https://images.unsplash.com/photo-1625845025941-576425b5974f?q=80&w=870&auto=format&fit=crop" alt="[Imagen de las ruinas del Foro Romano]" class="gallery-image">
+                                    <button class="gallery-btn prev-btn">&lt;</button>
+                                    <button class="gallery-btn next-btn">&gt;</button>
+                                </div>
+                                <p class="text-gray-600 text-sm">Usa tu misma entrada para explorar el corazón de la antigua Roma. Sube al Palatino para disfrutar de vistas increíbles del Foro.</p>
+                                <a href="https://maps.google.com/?q=Foro+Romano" target="_blank" class="text-indigo-600 font-semibold text-sm mt-2 inline-block hover:underline">Ver en Mapa →</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div id="dia21" class="scroll-reveal bg-white p-8 rounded-lg shadow-lg card-hover">
+                        <h2 class="text-3xl font-bold mb-2 text-indigo-900">Jueves 21 Nov: El Vaticano y Trastevere</h2>
+                        <p class="text-lg text-gray-500 mb-6">Un día de arte sacro y ambiente bohemio.</p>
+                        <div class="space-y-6">
+                            <div class="p-4 border rounded-lg">
+                                <h3 class="font-semibold text-lg text-indigo-800">09:00h - Museos Vaticanos y Capilla Sixtina</h3>
+                                <div class="gallery-container my-2">
+                                    <img src="https://images.unsplash.com/photo-1581456074212-b25855075d9e?q=80&w=735&auto=format&fit=crop" alt="[Imagen de la escalera de caracol de los Museos Vaticanos]" class="gallery-image active">
+                                    <img src="https://images.unsplash.com/photo-1545088661-d7027a42a8a2?q=80&w=870&auto=format&fit=crop" alt="[Imagen de la Galería de los Mapas en los Museos Vaticanos]" class="gallery-image">
+                                    <button class="gallery-btn prev-btn">&lt;</button>
+                                    <button class="gallery-btn next-btn">&gt;</button>
+                                </div>
+                                <p class="text-gray-600 text-sm">Accede a una de las colecciones de arte más grandes del mundo, culminando en la sobrecogedora Capilla Sixtina.</p>
+                                <a href="https://maps.google.com/?q=Museos+Vaticanos" target="_blank" class="text-indigo-600 font-semibold text-sm mt-2 inline-block hover:underline">Ver en Mapa →</a>
+                            </div>
+                            <div class="p-4 border rounded-lg">
+                                <h3 class="font-semibold text-lg text-indigo-800">13:30h - Basílica y Plaza de San Pedro</h3>
+                                <div class="gallery-container my-2">
+                                    <img src="https://images.unsplash.com/photo-1552055615-844a407a8975?q=80&w=870&auto=format&fit=crop" alt="[Imagen de la Basílica de San Pedro desde la plaza]" class="gallery-image active">
+                                    <img src="https://images.unsplash.com/photo-1598214013432-853db2d71120?q=80&w=774&auto=format&fit=crop" alt="[Imagen del interior de la Cúpula de San Pedro]" class="gallery-image">
+                                    <button class="gallery-btn prev-btn">&lt;</button>
+                                    <button class="gallery-btn next-btn">&gt;</button>
+                                </div>
+                                <p class="text-gray-600 text-sm">Entra a la basílica más grande del mundo (entrada gratuita). Sube a la cúpula (~€10) para una vista panorámica espectacular.</p>
+                                <a href="https://maps.google.com/?q=Basílica+de+San+Pedro" target="_blank" class="text-indigo-600 font-semibold text-sm mt-2 inline-block hover:underline">Ver en Mapa →</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div id="dia22" class="scroll-reveal bg-white p-8 rounded-lg shadow-lg card-hover">
+                        <h2 class="text-3xl font-bold mb-2 text-indigo-900">Viernes 22 Nov: Arte, Jardines y Compras</h2>
+                        <p class="text-lg text-gray-500 mb-6">Un día relajado con tesoros artísticos y vistas panorámicas.</p>
+                        <div class="space-y-6">
+                            <div class="p-4 border rounded-lg">
+                                <h3 class="font-semibold text-lg text-indigo-800">09:00h - Galería Borghese</h3>
+                                <div class="gallery-container my-2">
+                                    <img src="https://images.unsplash.com/photo-1621880404454-b52b3c95960d?q=80&w=774&auto=format&fit=crop" alt="[Imagen de una escultura de Bernini en la Galería Borghese]" class="gallery-image active">
+                                    <img src="https://images.unsplash.com/photo-1553372252-c2b6ac643a62?q=80&w=870&auto=format&fit=crop" alt="[Imagen de los jardines de Villa Borghese]" class="gallery-image">
+                                    <button class="gallery-btn prev-btn">&lt;</button>
+                                    <button class="gallery-btn next-btn">&gt;</button>
+                                </div>
+                                <p class="text-gray-600 text-sm">Disfruta de las obras maestras de Bernini y Caravaggio en un palacete espectacular. Visita limitada a 2 horas.</p>
+                                <a href="https://maps.google.com/?q=Galería+Borghese" target="_blank" class="text-indigo-600 font-semibold text-sm mt-2 inline-block hover:underline">Ver en Mapa →</a>
+                            </div>
+                            <div class="p-4 border rounded-lg">
+                                <h3 class="font-semibold text-lg text-indigo-800">13:00h - Piazza del Popolo y Plaza de España</h3>
+                                <div class="gallery-container my-2">
+                                    <img src="https://images.unsplash.com/photo-1579294422332-96582387149a?q=80&w=774&auto=format&fit=crop" alt="[Imagen de la escalinata de la Plaza de España]" class="gallery-image active">
+                                    <img src="https://images.unsplash.com/photo-1542304029-0d1656a83a48?q=80&w=874&auto=format&fit=crop" alt="[Imagen de la Piazza del Popolo]" class="gallery-image">
+                                    <button class="gallery-btn prev-btn">&lt;</button>
+                                    <button class="gallery-btn next-btn">&gt;</button>
+                                </div>
+                                <p class="text-gray-600 text-sm">Baja desde los Jardines Borghese a la Piazza del Popolo y camina hasta la elegante Plaza de España.</p>
+                                <a href="https://maps.google.com/?q=Plaza+de+España+Roma" target="_blank" class="text-indigo-600 font-semibold text-sm mt-2 inline-block hover:underline">Ver en Mapa →</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div id="dia23" class="scroll-reveal bg-white p-8 rounded-lg shadow-lg card-hover">
+                        <h2 class="text-3xl font-bold mb-2 text-indigo-900">Sábado 23 Nov: Mercado y Despedida</h2>
+                        <p class="text-lg text-gray-500 mb-6">Una mañana para disfrutar del ambiente local antes de partir.</p>
+                        <div class="space-y-6">
+                            <div class="p-4 border rounded-lg">
+                                <h3 class="font-semibold text-lg text-indigo-800">09:30h - Mercado de Campo de' Fiori</h3>
+                                <div class="gallery-container my-2">
+                                    <img src="https://images.unsplash.com/photo-1601055376379-399049d2459b?q=80&w=870&auto=format&fit=crop" alt="[Imagen del mercado de Campo de' Fiori]" class="gallery-image active">
+                                    <img src="https://images.unsplash.com/photo-1569464523730-85a7320074f3?q=80&w=870&auto=format&fit=crop" alt="[Imagen de productos en el mercado Campo de' Fiori]" class="gallery-image">
+                                    <button class="gallery-btn prev-btn">&lt;</button>
+                                    <button class="gallery-btn next-btn">&gt;</button>
+                                </div>
+                                <p class="text-gray-600 text-sm">Experimenta un auténtico mercado romano. Ideal para comprar productos locales o tomar un último capuchino.</p>
+                                <a href="https://maps.google.com/?q=Campo+de'+Fiori" target="_blank" class="text-indigo-600 font-semibold text-sm mt-2 inline-block hover:underline">Ver en Mapa →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
+    <!-- Back to Top Button -->
+    <button id="to-top-button" title="Go to top"
+        class="hidden fixed z-50 bottom-8 right-8 p-4 border-0 w-14 h-14 rounded-full shadow-md bg-indigo-600 hover:bg-indigo-700 text-white text-lg font-semibold transition-opacity duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path d="M12 4l8 8h-6v8h-4v-8H4l8-8z" />
+        </svg>
+    </button>
+
+
     <!-- Footer -->
-    <footer class="bg-white mt-12">
+    <footer class="bg-white mt-12 border-t">
         <div class="container mx-auto px-6 py-4 text-center text-gray-500">
-            <p>&copy; 2024 Guía de Viaje a Roma. ¡Disfruta de la Ciudad Eterna!</p>
+            <p>&copy; 2024 Tu Guía Personalizada. ¡Disfruta de tu increíble viaje a Roma!</p>
         </div>
     </footer>
     
     <script>
-        document.querySelectorAll('.nav-link').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = 120;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Image Gallery Logic ---
+            const galleries = document.querySelectorAll('.gallery-container');
+            galleries.forEach(gallery => {
+                const images = gallery.querySelectorAll('.gallery-image');
+                const prevBtn = gallery.querySelector('.prev-btn');
+                const nextBtn = gallery.querySelector('.next-btn');
+                let currentIndex = 0;
+
+                function showImage(index) {
+                    images.forEach((img, i) => {
+                        img.classList.toggle('active', i === index);
                     });
                 }
+
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+                    showImage(currentIndex);
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                    showImage(currentIndex);
+                });
+
+                showImage(currentIndex); // Show the first image initially
             });
+
+            // --- Back to Top Button ---
+            const toTopButton = document.getElementById('to-top-button');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    toTopButton.classList.remove('hidden');
+                } else {
+                    toTopButton.classList.add('hidden');
+                }
+            });
+            toTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- Active Nav Link on Scroll ---
+            const sections = document.querySelectorAll('.lg\\:col-span-3 > section, .lg\\:col-span-3 > div > div[id^="dia"]');
+            const navLinks = document.querySelectorAll('#nav-index .nav-link');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '-50% 0px -50% 0px', // Trigger when the middle of the viewport hits the middle of the section
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const link = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        if (link) {
+                            link.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                if (section) observer.observe(section);
+            });
+            
+             // --- Smooth Scroll for Nav Links ---
+            document.querySelectorAll('.nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80; // height of sticky header
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+
+            // --- Scroll Reveal Animation ---
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => revealObserver.observe(el));
         });
     </script>
-
 </body>
 </html>
-
